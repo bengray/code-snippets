@@ -57,7 +57,7 @@ const arrayTwoMap = createHashMap({
 // iterate through the first array
 arrayOne.forEach(item => {
     // Add a check to make sure the item exists in arrayTwo
-    if (arrayTwoMap[item] && arrayTwoMap[item.id]) {
+    if (arrayTwoMap[item.id]) {
 
         compareTheItemsInEachArray(item.name, arrayTwoMap[item.id].name) // first arguemnt is the "name" from the first array, second argument is the same key from the second array.
     }
