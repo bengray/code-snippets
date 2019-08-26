@@ -34,7 +34,7 @@ const arrayTwo = [
     }
 ];
 
-function createHashMap(array, key) {
+function createHashMap({array, key}) {
     const keyMap = {};
     array.forEach(element => {
         keyMap[element[key]] = element;
@@ -49,10 +49,10 @@ function createHashMap(array, key) {
     return keyMap;
 }
 
-const arrayTwoMap = createHashMap(
+const arrayTwoMap = createHashMap({
     array: arrayTwo,
     key: 'id'
-);
+});
 
 // iterate through the first array
 arrayOne.forEach(item => {
