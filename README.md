@@ -1,6 +1,22 @@
 # code-snippets
 Collection of useful, generic code snippets I find
 
+## Common regex patterns
+### Valid Email:
+```/\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b/```
+
+### Valid IPv4 address
+```/\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/```
+
+### Alpha-numeric, literals, digits, lowercase, uppercase
+```
+\w                //alpha-numeric only
+[a-zA-Z]          //literals only
+\d                //digits only
+[a-z]             //lowercase literal only
+[A-Z]             //uppercase literal only
+```
+
 ## Creating an array mapping
 Imagine two arrays of objects. Each object has a unique 'id' value.
 
