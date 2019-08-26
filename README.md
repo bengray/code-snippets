@@ -1,5 +1,5 @@
 # code-snippets
-Collection of useful, generic code snippets I find
+Collection of useful, generic code snippets
 
 ## Common regex patterns
 ### Valid Email:
