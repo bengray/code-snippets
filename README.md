@@ -1,4 +1,4 @@
-# code-snippets
+# CODE SNIPPETS
 Collection of useful, generic code snippets
 
 ## Common regex patterns
@@ -25,7 +25,7 @@ const areEqual = arr => arr.length > 0 && arr.every(item => item === arr[0]);
 // areEqual(['hello', 'hello', 'hello']) === true
 ```
 
-### Convert array of string to an array of numbers
+### Convert array of strings to an array of numbers
 ```
 const toNumbers = arr => arr.map(x => +x);
 // toNumbers(['2', '3', '4']) returns [2, 3, 4]
@@ -69,7 +69,6 @@ matching item in the SECOND array.  You _could_ iterate through the first array,
 that for-loop you could then iterate through the second array.  But this is bad.
 
 Instead, build a key map of the second array, then you only need to step through each array once.
-
 
  ```
 const arrayOne = [
@@ -124,7 +123,7 @@ arrayOne.forEach(item => {
 })
 ```
 
-## numbers
+## Numbers
 ### Check if a number is prime
 ```
 const isPrime = num => (num > 1) && Array(Math.floor(Math.sqrt(num)) - 1).fill(0).map((_, i) => i + 2).every(i => num % i !== 0);
@@ -169,7 +168,7 @@ const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 // capitalize('hello world') === 'Hello world'
 ```
 
-### Capitalize the first letter of a sentence
+### Capitalize the first letter of each word in a sentence
 ```
 const uppercaseWords = str => str.split(' ').map(w => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join(' ');
 // uppercaseWords('hello world') === 'Hello World'
