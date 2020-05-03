@@ -1,7 +1,7 @@
 # CODE SNIPPETS
 Collection of useful, generic code snippets.  I didn't come up with all these. I found some, made some; use as you see fit.
 
-## Common regex patterns
+## REGEX
 ### Valid Email:
 ```/\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b/```
 
@@ -17,7 +17,7 @@ Collection of useful, generic code snippets.  I didn't come up with all these. I
 [A-Z]             //uppercase literal only
 ```
 
-## Arrays
+## ARRAYS
 ### Check if arrays are equal
 ```
 const areEqual = arr => arr.length > 0 && arr.every(item => item === arr[0]);
@@ -124,7 +124,7 @@ arrayOne.forEach(item => {
 })
 ```
 
-## Numbers
+## NUMBERS
 ### Check if a number is prime
 ```
 const isPrime = num => (num > 1) && Array(Math.floor(Math.sqrt(num)) - 1).fill(0).map((_, i) => i + 2).every(i => num % i !== 0);
@@ -162,7 +162,7 @@ const prefixWithZeros = (number, length) => String(number).padStart(length, '0')
 // prefixWithZeros(42, 5) === '00042'
 ```
 
-## Strings
+## STRINGS
 ### Capitalize a string
 ```
 const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
@@ -216,8 +216,6 @@ const nl2br = str => str.replace(new RegExp('\r?\n', 'g'), '<br>');
 // In React
 str.split('\n').map((item, index) => <React.Fragment key={index}>{item}<br /></React.Fragment>)
 ```
-
-
 
 ## MISC
 
