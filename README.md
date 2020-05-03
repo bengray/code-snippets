@@ -17,7 +17,51 @@ Collection of useful, generic code snippets
 [A-Z]             //uppercase literal only
 ```
 
-## Creating an array mapping
+## Arrays
+### Check if arrays are equal
+```
+const areEqual = arr => arr.length > 0 && arr.every(item => item === arr[0]);
+// areEqual([1, 2, 3, 4]) === false
+// areEqual(['hello', 'hello', 'hello']) === true
+```
+
+### Convert array of string to an array of numbers
+```
+const toNumbers = arr => arr.map(x => +x);
+// toNumbers(['2', '3', '4']) returns [2, 3, 4]
+```
+
+### Find length of longest string in an array
+```const findLongest = words => Math.max(...(words.map(el => el.length)));
+// findLongest(['always','look','on','the','bright','side','of','life']) === 6;
+```
+
+### Flatten an array
+```
+const flat = arr => arr.reduce((a, b) => Array.isArray(b) ? [...a, ...flat(b)] : [...a, b], []);
+
+// Or
+const flat = arr => arr.flat();
+
+// flat(['cat', ['lion', 'tiger']]) returns ['cat', 'lion', 'tiger']
+```
+
+### Get a random item from an array
+```
+const randomItem = arr => arr[(Math.random() * arr.length) | 0];
+```
+
+### Get the average from an array
+```
+const average = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+```
+
+### Get the unique values from an array
+```
+const unique = arr => [...new Set(arr)];
+```
+
+### Creating an array mapping
 Imagine two arrays of objects. Each object has a unique 'id' value.
 
 You need to iterate through each array, and compare each object in the FIRST array with its
@@ -80,7 +124,104 @@ arrayOne.forEach(item => {
 })
 ```
 
-## CSS Hack to highlight nested divs
+## numbers
+### Check if a number is prime
+```
+const isPrime = num => (num > 1) && Array(Math.floor(Math.sqrt(num)) - 1).fill(0).map((_, i) => i + 2).every(i => num % i !== 0);
+```
+
+### Check if a number is a power of two
+```
+const isPowerOfTwo = number => (number & (number - 1)) === 0;
+// isPowerOfTwo(256) === true
+// isPowerOfTwo(129) === false
+```
+
+### Compute greatest common denomitator between two numbers
+```
+const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+
+// gcd(10, 15) === 5
+```
+
+### Convert a string to a number
+```
+const toNumber = str => +str;
+// toNumber('42') === 42
+```
+
+### Generate random number within a range
+```
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+```
+
+### Prefix an integer with zeroes
+```
+const prefixWithZeros = (number, length) => String(number).padStart(length, '0');
+
+// prefixWithZeros(42, 5) === '00042'
+```
+
+## Strings
+### Capitalize a string
+```
+const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+// capitalize('hello world') === 'Hello world'
+```
+
+### Capitalize the first letter of a sentence
+```
+const uppercaseWords = str => str.split(' ').map(w => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join(' ');
+// uppercaseWords('hello world') === 'Hello World'
+```
+
+### Check if a string contains whitespace
+```
+const containsWhitespace = str => str => /\s/.test(str);
+// containsWhitespace('hello world') === true
+```
+
+### Check if a string is lowercase
+```
+const isLowerCase = str => str === str.toLowerCase();
+```
+
+### Check if a string is uppercase
+```
+const isUpperCase = str => str === str.toUpperCase();
+```
+
+### Get file extension from a file
+```
+const ext = fileName => fileName.split('.').pop();
+```
+
+### Get the file name from a URL
+```
+const fileName = url => url.substring(url.lastIndexOf('/') + 1);
+// fileName('http://domain.com/path/to/document.pdf') === 'document.pdf'
+```
+
+### Remove spaces from a string
+```
+const removeSpaces = str => str.replace(/\s/g, '');
+
+// removeSpaces('hel lo wor ld') === 'helloworld'
+```
+
+### Replace all line breaks with <br> elements
+```
+const nl2br = str => str.replace(new RegExp('\r?\n', 'g'), '<br>');
+
+// In React
+str.split('\n').map((item, index) => <React.Fragment key={index}>{item}<br /></React.Fragment>)
+```
+
+
+
+## MISC
+
+### CSS Hack to highlight nested divs
 ```
 * { background-color: rgba(255,0,0,.2); }
 * * { background-color: rgba(0,255,0,.2); }
@@ -91,4 +232,22 @@ arrayOne.forEach(item => {
 * * * * * * * { background-color: rgba(255,0,0,.2); }
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+```
+
+### Check if code is running in Node.js
+```
+const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
+```
+
+### Check if code is running in the browser
+```
+const isBrowser = typeof window === 'object' && typeof document === 'object';
+```
+
+### Emulate a dice throw
+```
+const throwdice = () => ~~(Math.random() * 6) + 1;
+// throwdice() === 4
+// throwdice() === 1
+// throwdice() === 6
 ```
