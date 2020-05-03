@@ -32,7 +32,8 @@ const toNumbers = arr => arr.map(x => +x);
 ```
 
 ### Find length of longest string in an array
-```const findLongest = words => Math.max(...(words.map(el => el.length)));
+```
+const findLongest = words => Math.max(...(words.map(el => el.length)));
 // findLongest(['always','look','on','the','bright','side','of','life']) === 6;
 ```
 
