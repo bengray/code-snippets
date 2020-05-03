@@ -209,7 +209,7 @@ const removeSpaces = str => str.replace(/\s/g, '');
 // removeSpaces('hel lo wor ld') === 'helloworld'
 ```
 
-### Replace all line breaks with <br> elements
+### Replace all line breaks with &lt;br&gt; elements
 ```
 const nl2br = str => str.replace(new RegExp('\r?\n', 'g'), '<br>');
 
