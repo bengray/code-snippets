@@ -41,7 +41,7 @@ const findLongest = words => Math.max(...(words.map(el => el.length)));
 ```
 const flat = arr => arr.reduce((a, b) => Array.isArray(b) ? [...a, ...flat(b)] : [...a, b], []);
 
-// Or
+// Or if you don't have to worry about IE11
 const flat = arr => arr.flat();
 
 // flat(['cat', ['lion', 'tiger']]) returns ['cat', 'lion', 'tiger']
