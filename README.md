@@ -1,5 +1,5 @@
 # CODE SNIPPETS
-Collection of useful, generic code snippets.  I didn't come up with all these, I found some, made some; use as you see fit.
+Collection of useful, generic code snippets.  I didn't come up with all these. I found some, made some; use as you see fit.
 
 ## Common regex patterns
 ### Valid Email:
